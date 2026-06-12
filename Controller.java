@@ -30,9 +30,38 @@ public class Controller {
 
     @FXML
     void input_onbutton(ActionEvent event) {
+        String choice1 = choicebox1.getValue();
+        String choice2 = choicebox2.getValue();
+        String choice3 = choicebox3.getValue(); 
 
+        Integer score = 0;
+        if (choice1.equals("String")) {
+            score += 1;
+        } else if (choice1.equals("class")) {
+            score += 0;
+        } else if (choice1.equals("System")) {
+            score += 0;
+        }
+        if (choice2.equals("String")) {
+            score += 0;
+        } else if (choice2.equals("class")) {
+            score += 1;
+        } else if (choice2.equals("System")) {    
+            score += 0;
+        }
+        if (choice3.equals("String")) {
+            score += 0;
+        } else if (choice3.equals("class")) {
+            score += 0;
+        } else if (choice3.equals("System")) {
+            score += 1;      
     }
 
+    String string_score = score.toString();
+    label_result.setText("Your score is: " + string_score + "/3");
+
+    
+    }
    
     @FXML
     void initialize() {
