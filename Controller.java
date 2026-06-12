@@ -42,5 +42,9 @@ public class Controller {
         assert timeClock != null : "fx:id=\"timeClock\" was not injected: check your FXML file 'View.fxml'.";
 
     }
+    @FXML
+    void initiallize() {
+        // TODO Auto-generated method stub
 
+    }
 }

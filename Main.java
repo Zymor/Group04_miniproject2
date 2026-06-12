@@ -1,3 +1,5 @@
+import java.net.URL;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,9 +15,9 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
 
-        Parent root = loader.load(getClass().getResource("View.fxml").openStream() );
+        URL url = loader.laod(url)
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(url);
         stage.setScene(scene);
         stage.show();
     }
