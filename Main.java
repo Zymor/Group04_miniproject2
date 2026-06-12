@@ -13,11 +13,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("View.fxml"));
 
-        URL url = loader.laod(url)
+        Parent root = loader.load();
 
-        Scene scene = new Scene(url);
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

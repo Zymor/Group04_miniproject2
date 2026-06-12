@@ -14,13 +14,13 @@ public class Controller {
     private URL location;
 
     @FXML
-    private ChoiceBox<?> choicebox1;
+    private ChoiceBox<String> choicebox1;
 
     @FXML
-    private ChoiceBox<?> choicebox2;
+    private ChoiceBox<String> choicebox2;
 
     @FXML
-    private ChoiceBox<?> choicebox3;
+    private ChoiceBox<String> choicebox3;
 
     @FXML
     private Label label_result;
@@ -33,18 +33,14 @@ public class Controller {
 
     }
 
+   
     @FXML
     void initialize() {
-        assert choicebox1 != null : "fx:id=\"choicebox1\" was not injected: check your FXML file 'View.fxml'.";
-        assert choicebox2 != null : "fx:id=\"choicebox2\" was not injected: check your FXML file 'View.fxml'.";
-        assert choicebox3 != null : "fx:id=\"choicebox3\" was not injected: check your FXML file 'View.fxml'.";
-        assert label_result != null : "fx:id=\"label_result\" was not injected: check your FXML file 'View.fxml'.";
-        assert timeClock != null : "fx:id=\"timeClock\" was not injected: check your FXML file 'View.fxml'.";
-
-    }
-    @FXML
-    void initiallize() {
-        // TODO Auto-generated method stub
-
+        choicebox1.setValue("Select");
+        choicebox1.getItems().addAll("String", "class", "System");
+        choicebox2.setValue("Select");
+        choicebox2.getItems().addAll("String", "class", "System");
+        choicebox3.setValue("Select");
+        choicebox3.getItems().addAll("String", "class", "System");
     }
 }
