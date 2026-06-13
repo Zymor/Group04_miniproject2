@@ -1,9 +1,12 @@
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 
 public class Controller {
 
@@ -26,7 +29,36 @@ public class Controller {
     private Label label_result;
 
     @FXML
-    private Label timeClock;
+    private Label timerLabel;
+
+    private Timeline timeline;
+    private int remainingSeconds;
+
+    @FXML
+    private void timeClock() {
+        if (timeline != null) {
+            timeline.stop();
+        }
+
+        remainingSeconds = 120;
+        timerLabel.setText(formatTime(remainingSeconds));
+
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            remainingSeconds--;
+            timerLabel.setText(formatTime(remainingSeconds));
+            if (remainingSeconds <= 0) {
+                timeline.stop();
+            }
+        }));
+        timeline.setCycleCount(120);
+        timeline.play();
+    }
+    
+    private String formatTime(int seconds) {
+        int minutes = seconds / 60;
+        int secs = seconds % 60;
+        return String.format("%d:%02d", minutes, secs);
+    }
 
     @FXML
     void input_onbutton(ActionEvent event) {
@@ -71,5 +103,6 @@ public class Controller {
         choicebox2.getItems().addAll("String", "class", "System");
         choicebox3.setValue("Select");
         choicebox3.getItems().addAll("String", "class", "System");
+        timeClock();
     }
 }
